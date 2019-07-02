@@ -11,11 +11,11 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<AnchorPane id="AnchorPane" prefHeight="225.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.wordpress.erenbasaran.HashCalculatorController">
+<AnchorPane id="AnchorPane" prefHeight="225.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gelecex.HashCalculatorController">
     <children>
       <ImageView fitHeight="284.0" fitWidth="362.0" layoutX="236.0" layoutY="2.0" opacity="0.22" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../img/hash1.png" />
+            <Image url="@/hash1.png" />
          </image>
       </ImageView>
       <HBox layoutX="33.0" layoutY="245.0" spacing="150.0">
