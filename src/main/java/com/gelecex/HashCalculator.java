@@ -33,7 +33,7 @@ public class HashCalculator {
             
             MessageDigest message = MessageDigest.getInstance(algorithm);
             byte[] digestBytes = message.digest(fileOfBytes);
-            BASE64Encoder encoder = new BASE64Encoder(); //TODO: write your own
+            BASE64Encoder encoder = new BASE64Encoder();
             return encoder.encode(digestBytes);
         } catch (NoSuchAlgorithmException ex) {
             Logger.getLogger(HashCalculator.class.getName()).log(Level.SEVERE, null, ex);

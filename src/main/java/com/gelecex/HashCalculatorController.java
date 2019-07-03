@@ -53,6 +53,10 @@ public class HashCalculatorController implements Initializable {
     private String fileChooserTitle = "";
     private String chooserWarning = "";
     private String contentInfo = "";
+    private String verifiedInfo = "";
+    private String verifiedError = "";
+    private String verifiedInfoTitle = "";
+    private String verifiedErrorTitle = "";
     private File selectedFile;
 
     @FXML
@@ -64,17 +68,24 @@ public class HashCalculatorController implements Initializable {
             if (selectedFile != null) {
                 String calculatedHashValue = hash.calculate(selectedFile, hashAlgorithm);
                 lblValue.setText(calculatedHashValue);
-//                if (txtHashed.getText() != null) {
-//                    if (!txtHashed.getText().equals(calculatedHashValue)) {
-                        Alert alert = new Alert(Alert.AlertType.WARNING);
-                        alert.setTitle(chooserWarning);
-                        alert.setContentText("Dogrulama tamam");
-//                    }
-//                }
+                if (txtHashed.getText() != null) {
+                    if (txtHashed.getText().equals(calculatedHashValue)) {
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setTitle(verifiedInfoTitle);
+                        alert.setContentText(verifiedInfo);
+                        alert.show();
+                    } else {
+                        Alert alert = new Alert(Alert.AlertType.ERROR);
+                        alert.setTitle(verifiedErrorTitle);
+                        alert.setContentText(verifiedError);
+                        alert.show();
+                    }
+                }
             } else {
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setTitle(chooserWarning);
                 alert.setContentText(contentInfo);
+                alert.show();
             }
         }
     }
@@ -86,6 +97,7 @@ public class HashCalculatorController implements Initializable {
             FileChooser fileChooser = new FileChooser();
             fileChooser.setTitle(fileChooserTitle);
             selectedFile = fileChooser.showOpenDialog(stage);
+            lblValue.setText(selectedFile.getName());
         }
     }
 
@@ -137,6 +149,10 @@ public class HashCalculatorController implements Initializable {
         fileChooserTitle = bundle.getString("chooserTitle");
         chooserWarning = bundle.getString("chooserWarning");
         contentInfo = bundle.getString("contentInfo");
+        verifiedInfo = bundle.getString("verifiedInfo");
+        verifiedError = bundle.getString("verifiedError");
+        verifiedInfoTitle = bundle.getString("verifiedInfoTitle");
+        verifiedErrorTitle = bundle.getString("verifiedErrorTitle");
     }
 
 }
